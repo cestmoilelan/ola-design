@@ -11,7 +11,7 @@
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   font-family: "Work Sans", sans-serif;
   font-size: 1.1rem;
   line-height: 2;
@@ -20,7 +20,10 @@ html {
 
 /* OBJECTS */
 
-header, .figure, .div-text, footer {
+header,
+.figure,
+.div-text,
+footer {
   scroll-snap-align: start;
 }
 
@@ -33,14 +36,13 @@ h1 {
 
 a {
   text-decoration: none;
-  color:var(--dg-text-color);
+  color: var(--dg-text-color);
 }
 a:hover {
   color: var(--hover-link-color);
   text-decoration: underline solid var(--hover-link-color);
   text-decoration-thickness: 0.1px;
 }
-
 
 @keyframes drawhorizline {
   0% {
@@ -51,13 +53,11 @@ a:hover {
   }
 }
 .horizontal-line {
-  animation: drawhorizline 2s 1s; 
+  animation: drawhorizline 2s 1s;
   width: 50%;
   border-bottom: 1px solid var(--dg-text-color);
   margin: 3vh 0 5vh 0;
 }
-
-
 
 .container {
   display: flex;
@@ -71,12 +71,17 @@ a:hover {
     flex-direction: column;
     justify-content: space-between;
   }
-
 }
 
 .figure {
   flex: 1 0 50%;
   height: 100vh;
+  background-color: var(--bright-bg-color);
+}
+@media screen and (min-width: 641px) {
+  .figure {
+    width: 50%;
+  }
 }
 
 .figure-content {
@@ -91,6 +96,11 @@ a:hover {
   flex: 1 0 50%;
   height: 100vh;
   background-color: var(--bright-bg-color);
+}
+@media screen and (min-width: 641px) {
+  .div-text {
+    width: 50%;
+  }
 }
 
 .text-container {
@@ -109,7 +119,6 @@ div.empty-separator {
   width: 100%;
 }
 
-
 /* LOGO */
 
 .logo-header img {
@@ -118,7 +127,6 @@ div.empty-separator {
   top: 2vh;
   height: 20vh;
 }
-
 
 /* NAVBAR */
 
@@ -149,7 +157,7 @@ div.empty-separator {
     align-items: flex-end;
     padding-top: 5vh;
   }
-} 
+}
 
 .nav-menu li {
   padding: 0 2vw;
@@ -166,7 +174,7 @@ div.empty-separator {
     color: var(--dg-text-color);
     text-decoration: none;
   }
-} 
+}
 
 .nav-menu .insta-logo {
   display: block;
@@ -178,31 +186,30 @@ div.empty-separator {
   .nav-menu .insta-logo {
     content: url("images/insta-white.png");
   }
-} 
+}
 
 .nav-menu .insta-logo:hover {
   height: 20px;
   width: 20px;
-  content: url("images/insta-white.png");
+  content: url("images/insta-taupe.png");
 }
 @media screen and (max-width: 640px) {
   .nav-menu .insta-logo:hover {
     content: url("images/insta-icon.png");
   }
-} 
-
+}
 
 /* ELEMENTS */
-
 
 .figure-content1 {
   background-image: url("images/cropped/bananas.jpg");
 }
 @media screen and (max-width: 640px) {
   .figure-content1 {
-    background-position: left 15% top 0;
+    background-position: left 40% top 0;
   }
 }
+
 
 @media screen and (max-width: 640px) {
   .figure2 {
@@ -223,7 +230,6 @@ div.empty-separator {
   font-size: 0.78rem;
 }
 
-
 .figure-content3 {
   background-image: url("images/cropped/working.jpg");
 }
@@ -232,7 +238,6 @@ div.empty-separator {
     background-position: left 30% top 0;
   }
 }
-
 
 /* FOOTER  */
 .footer {
@@ -254,6 +259,5 @@ div.empty-separator {
 .footer img {
   height: 4vh;
   vertical-align: middle;
+  margin: 0 6px 0 0;
 }
-
-
