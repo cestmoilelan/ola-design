@@ -11,7 +11,7 @@
 }
 
 html {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   font-family: "Work Sans", sans-serif;
   font-size: 1.1rem;
   line-height: 2;
@@ -38,10 +38,13 @@ a {
   text-decoration: none;
   color: var(--dg-text-color);
 }
-a:hover {
-  color: var(--hover-link-color);
-  text-decoration: underline solid var(--hover-link-color);
-  text-decoration-thickness: 0.1px;
+
+@media screen and (hover: hover) {
+  a:hover {
+    color: var(--hover-link-color);
+    text-decoration: underline solid var(--hover-link-color);
+    text-decoration-thickness: 0.1px;
+  }
 }
 
 @keyframes drawhorizline {
@@ -77,6 +80,7 @@ a:hover {
   flex: 1 0 50%;
   height: 100vh;
   background-color: var(--bright-bg-color);
+  position: relative;
 }
 @media screen and (min-width: 641px) {
   .figure {
@@ -96,6 +100,7 @@ a:hover {
   flex: 1 0 50%;
   height: 100vh;
   background-color: var(--bright-bg-color);
+  position: relative;
 }
 @media screen and (min-width: 641px) {
   .div-text {
@@ -126,6 +131,7 @@ div.empty-separator {
   left: 3vw;
   top: 2vh;
   height: 20vh;
+  z-index: 2;
 }
 
 /* NAVBAR */
@@ -170,6 +176,12 @@ div.empty-separator {
   .nav-menu a {
     color: white;
   }
+  .nav-menu a:active {
+    color: var(--dg-text-color);
+  }
+}
+
+@media screen and (max-width: 640px) and (hover: hover) {
   .nav-menu a:hover {
     color: var(--dg-text-color);
     text-decoration: none;
@@ -199,6 +211,81 @@ div.empty-separator {
   }
 }
 
+/* DOWN ARROW BUTTON */
+
+@keyframes upAndDown {
+  from {
+    transform: translateY(-1vh);
+  }
+  to {
+    transform: translateY(1vh);
+  }
+}
+
+.down-btn {
+  background: none;
+  height: 8vh;
+  width: 8vh;
+  border: 1px solid transparent;
+  border-radius: 10vh;
+  position: absolute;
+  top: 88vh;
+  right: 15vh;
+  z-index: 2;
+  cursor: pointer;
+  animation: upAndDown 2.5s ease-in infinite alternate;
+  transition: border 150ms ease-out;
+}
+
+.btn-left {
+  display: none;
+}
+
+.btn-black {
+  background-image: url("images/arrow.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-black:active {
+  border: 1px solid var(--dg-text-color);
+}
+@media screen and (hover: hover) {
+  .btn-black:hover {
+    border: 1px solid var(--dg-text-color);
+  }
+}
+
+.btn-white {
+  background-image: url("images/white-arrow.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-white:active {
+  border: 1px solid white;
+}
+@media screen and (hover: hover) {
+  .btn-white:hover {
+    border: 1px solid white;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .down-btn {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .btn-left {
+    display: block;
+  }
+}
+
+.down-btn:active {
+  outline: none;
+}
+
 /* ELEMENTS */
 
 .figure-content1 {
@@ -209,7 +296,6 @@ div.empty-separator {
     background-position: left 40% top 0;
   }
 }
-
 
 @media screen and (max-width: 640px) {
   .figure2 {

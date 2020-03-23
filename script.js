@@ -1,3 +1,5 @@
+// Fade in/out images that are scrolled in/out of view
+
 const figure1 = document.querySelector(".figure1");
 const figure2 = document.querySelector(".figure2");
 const figure3 = document.querySelector(".figure3");
@@ -51,3 +53,15 @@ if (document.documentElement.clientWidth >= 641) {
   figureContent1.style.backgroundPosition = `left ${offset}px top 0`;
   figureContent3.style.backgroundPosition = `left ${offset}px top 0`;
 }
+
+// Give functionality to scroll-down arrow
+
+const downButtons = document.querySelectorAll(".down-btn");
+console.log(downButtons);
+
+downButtons.forEach(downButton => {
+  downButton.addEventListener("click", () => {
+    window.scrollBy(0,windowHeight);
+    downButton.style.outline = "none";});
+});
+
