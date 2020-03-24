@@ -211,7 +211,7 @@ div.empty-separator {
   }
 }
 
-/* DOWN ARROW BUTTON */
+/* ARROW BUTTONS */
 
 @keyframes upAndDown {
   from {
@@ -222,8 +222,11 @@ div.empty-separator {
   }
 }
 
-.down-btn {
+.arrow-btn {
   background: none;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center center;
   height: 8vh;
   width: 8vh;
   border: 1px solid transparent;
@@ -236,18 +239,29 @@ div.empty-separator {
   animation: upAndDown 2.5s ease-in infinite alternate;
   transition: border 150ms ease-out;
 }
+.arrow-btn:active {
+  outline: none;
+}
+
+.arrow-btn:focus {
+  outline: none;
+}
 
 .btn-left {
   display: none;
 }
 
-.btn-black {
+.btn-black-down {
   background-image: url("images/arrow.png");
-  background-size: 70%;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
-.btn-black:active {
+.btn-black-up {
+  background-image: url("images/up-arrow.png");
+}
+.btn-white-down {
+  background-image: url("images/white-arrow.png");
+}
+
+.btn-black:active, .btn-black:focus {
   border: 1px solid var(--dg-text-color);
 }
 @media screen and (hover: hover) {
@@ -255,14 +269,7 @@ div.empty-separator {
     border: 1px solid var(--dg-text-color);
   }
 }
-
-.btn-white {
-  background-image: url("images/white-arrow.png");
-  background-size: 70%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.btn-white:active {
+.btn-white:active, .btn-white:focus {
   border: 1px solid white;
 }
 @media screen and (hover: hover) {
@@ -272,7 +279,7 @@ div.empty-separator {
 }
 
 @media screen and (max-width: 640px) {
-  .down-btn {
+  .arrow-btn {
     left: 0;
     right: 0;
     margin: auto;
@@ -282,9 +289,7 @@ div.empty-separator {
   }
 }
 
-.down-btn:active {
-  outline: none;
-}
+
 
 /* ELEMENTS */
 

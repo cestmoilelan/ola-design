@@ -39,15 +39,13 @@ window.addEventListener("scroll", fadeInOut.bind(null, figure1));
 window.addEventListener("scroll", fadeInOut.bind(null, figure2));
 window.addEventListener("scroll", fadeInOut.bind(null, figure3));
 
-
-
 // Change image offset according to window aspect ratio
 if (document.documentElement.clientWidth >= 641) {
   const figureContent1 = document.querySelector(".figure-content1");
   const figureContent2 = document.querySelector(".figure-content2");
   const figureContent3 = document.querySelector(".figure-content3");
 
-  const offset = ((-0.60 * windowHeight) / windowWidth) * windowHeight;
+  const offset = ((-0.6 * windowHeight) / windowWidth) * windowHeight;
   console.log(offset);
 
   figureContent1.style.backgroundPosition = `left ${offset}px top 0`;
@@ -56,12 +54,12 @@ if (document.documentElement.clientWidth >= 641) {
 
 // Give functionality to scroll-down arrow
 
-const downButtons = document.querySelectorAll(".down-btn");
-console.log(downButtons);
+const downButtonsDown = document.querySelectorAll(".btn-black-down, .btn-white-down");
 
-downButtons.forEach(downButton => {
+
+downButtonsDown.forEach(downButton => {
   downButton.addEventListener("click", () => {
-    window.scrollBy(0,windowHeight);
-    downButton.style.outline = "none";});
+    window.scrollBy(0, windowHeight);
+    downButton.style.outline = "none";
+  });
 });
-
