@@ -70,8 +70,24 @@ window.addEventListener("wheel", slideUpDown, {passive: false});
 
 function slideUpDown(event) {
   event.preventDefault();
-  console.log(event.deltaY);
   const toDown = -1+2*(event.deltaY>0);
-  console.log(toDown);
   window.scrollBy(0, toDown*windowHeight);
+}
+
+
+let startY = 0;
+window.addEventListener("touchstart", registerYtouch, {cancelable: true, passive: false});
+window.addEventListener("touchend", slideTouch, {cancelable: true});
+
+function registerYtouch(event) {
+  startY = event.touches[0].clientY;
+}
+function slideTouch(event) {
+  const endY = event.changedTouches[0].clientY;
+  const deltaY = endY - startY;
+  if(deltaY<-5){
+    window.scrollBy(0, windowHeight);
+  } else if(deltaY>5) {
+    window.scrollBy(0, -windowHeight);
+  }
 }
