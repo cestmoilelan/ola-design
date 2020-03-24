@@ -63,3 +63,15 @@ downButtonsDown.forEach(downButton => {
     downButton.style.outline = "none";
   });
 });
+
+// Force snapping to next section
+
+window.addEventListener("wheel", slideUpDown, {passive: false});
+
+function slideUpDown(event) {
+  event.preventDefault();
+  console.log(event.deltaY);
+  const toDown = -1+2*(event.deltaY>0);
+  console.log(toDown);
+  window.scrollBy(0, toDown*windowHeight);
+}
